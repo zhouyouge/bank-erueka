@@ -1,0 +1,18 @@
+#配置端口号
+server:
+  port: 7776
+  #记录注册信息
+eureka:
+  client:
+    #是否要从注册中心获取注册的服务默认是true，这里不需要，因为自己就是注册中心
+    fetch-registry: false
+    #注册中心的服务地址
+    service-url:
+      defaultZone: http://root:123456@localhost:7776/eureka
+      #是否需要把自己注册到erueka注册中心默认是true这里不需要注册因为本机就是注册中心
+    register-with-eureka: false
+# eureka server注册中心开启basic认证这样的话通过验证的服务客户端，只有通过验证的服务客户daunt才能把服务注册到注册中心
+security:
+  user:
+    name: root
+    password: 123456
